@@ -1,6 +1,9 @@
 # version of node to use -- 10 is node's most recent LTS (Long Term Support) version
 FROM node:lts-alpine
 
+# app dir
+WORKDIR /usr/app
+
 # installing app dependencies
 COPY package.json .
 
@@ -10,7 +13,7 @@ RUN yarn install
 COPY . .
 
 # expose port that the app is running on
-EXPOSE 8080
+EXPOSE 3456
 
 # run server
 CMD ["yarn", "start"]
